@@ -12,6 +12,7 @@ export default async function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
 
         <h1 className="flex item-center">PUBLIC-CONTENT</h1>
+        <h1>keycloak</h1>
         
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <SignIn />
