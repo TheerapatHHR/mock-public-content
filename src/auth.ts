@@ -15,7 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           refresh_token: account.refresh_token,
           id_token: account.id_token,
         }
-      } 
+      }
       // else if (Date.now() < token.expires_at * 1000) {
       //   return token
       // } 
@@ -65,15 +65,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       session.id_token = token.id_token
       return session;
     },
-     async redirect({ url, baseUrl }) {
-    // Allows relative callback URLs
-    if (url.startsWith("/")) return `${baseUrl}${url}`
- 
-    // Allows callback URLs on the same origin
-    if (new URL(url).origin === baseUrl) return `${url}`
- 
-    return baseUrl
-  }
   },
 })
 
