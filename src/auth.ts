@@ -69,10 +69,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       console.log("Redirect URL:", url);
       console.log("Base URL:", baseUrl);
     // Allows relative callback URLs
-    if (url.startsWith("/")) return `${baseUrl}${url}`
+    if (url.startsWith("/")) return `${baseUrl}:4200${url}`
  
     // Allows callback URLs on the same origin
-    if (new URL(url).origin === baseUrl) return url
+    if (new URL(url).origin === baseUrl) return `${url}:4200`
  
     return baseUrl
   }
