@@ -70,7 +70,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     if (url.startsWith("/")) return `${baseUrl}${url}`
  
     // Allows callback URLs on the same origin
-    if (new URL(url).origin === baseUrl) return url
+    if (new URL(url).origin === baseUrl) return `${url}:4200`
  
     return baseUrl
   }
