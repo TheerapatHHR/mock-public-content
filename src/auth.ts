@@ -23,7 +23,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!token.refresh_token) throw new Error("No refresh token available");
 
         try {
-          console.log("into try-------------")
           const response = await fetch("https://extgw-oapi-pf-sit.arisetech.dev/realms/partner/protocol/openid-connect/token", {
             method: "POST",
             headers: {
@@ -55,8 +54,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             idToken: newTokens.id_token,
           }
         } catch (error) {
-          console.error("Error refreshing token:", error);
-          token.error = "RefreshTokenError"
+          // console.error("Error refreshing token:", error);
+          // token.error = "RefreshTokenError"
           return token;
         }
       }
