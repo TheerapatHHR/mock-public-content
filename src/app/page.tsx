@@ -1,7 +1,6 @@
 import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
 import { auth } from "@/auth";
-import Image from "next/image";
 
 export default async function Home() {
 
@@ -16,7 +15,14 @@ export default async function Home() {
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <div className="text-sm sm:text-base">
-            {session?.user ? (<SignOut />) : (<SignIn />)}
+            {session?.user ? (
+              <div className="flex items-center flex-col gap-8">
+                <div className="text-[40px]">Logged in!</div>
+                <SignOut />
+              </div>
+              ) : (
+              <SignIn />
+              )}
           </div>
 
           {/* <SignOut /> */}
